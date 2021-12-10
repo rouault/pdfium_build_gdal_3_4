@@ -17,6 +17,9 @@ call git apply ..\code.patch
 cd build
 call git apply ..\..\build_win.patch
 cd ..
+cd third_party\nasm
+call git apply ..\..\..\build_win_nasm.patch
+cd ..\..
 mkdir out
 cd out
 mkdir Release

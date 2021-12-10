@@ -1,0 +1,16 @@
+diff --git a/BUILD.gn b/BUILD.gn
+index 2c6981e6..69ec1814 100644
+--- a/BUILD.gn
++++ b/BUILD.gn
+@@ -36,8 +36,9 @@ if (is_debug) {
+   if (is_win) {
+     # This switches to using the release CRT. For yasm debug component builds
+     # of highbd_sad4d_sse2.asm on Windows this saved about 15 s.
+-    configs_to_delete += [ "//build/config/win:default_crt" ]
+-    configs_to_add += [ "//build/config/win:release_crt" ]
++    # Actually, for GDAL context, stick to default_crt
++    #configs_to_delete += [ "//build/config/win:default_crt" ]
++    #configs_to_add += [ "//build/config/win:release_crt" ]
+ 
+     # Without no_default_deps, an implicit dependency on libc++ is added.
+     # libc++ may have been built referencing the debug CRT, but since we're
